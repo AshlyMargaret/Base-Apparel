@@ -168,6 +168,11 @@ form {
     padding-left: 20px;
 }
 
+.sucessfullMessage{
+    color: var(--SoftRed);
+    padding-left: 20px; 
+}
+
 
 
 
