@@ -5,20 +5,30 @@ let sucess_msg = document.getElementById("sucess_text");
 let submit_btn = document.getElementById("submit-btn");
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-const email_value = emaill.value;
+
 
 
 
 submit_btn.addEventListener("click",validateEmail);
 
-function validateEmail(){
+function validateEmail(event){
+    event.preventDefault();
 
-   if(email_value.match(validRegex)){ 
+const email_value = emaill.value;
+const check = email_value.match(validRegex);
+console.log(check);
+console.log("email",email_value);
+
+   if(check){ 
    
-     sucess_msg.style.display ="inline-block";
-     sucess_msg.style.color = "green";
-     sucess_msg.innerText = "Thank you for subsribing to our newsletter!";
+    
+    sucess_msg.style.display ="inline-block";
+    sucess_msg.style.color = "green";
+    sucess_msg.innerText = "Thank you for subsribing to our newsletter!";
    
+
+  
+  window.location.href ="./sucess.html";
      
    }
 
@@ -28,5 +38,7 @@ function validateEmail(){
    
 
    }
+
+   return false;
 
 }
